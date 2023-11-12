@@ -22,7 +22,7 @@ public class parser {
     public static void main(String[] args) throws Exception
     {
         // pass the path to the file as a parameter
-        File file = new File("C:\\Users\\prive\\Documents\\FolderMapping\\test\\rawOutput.txt");
+        File file = new File("C:\\Users\\prive\\Documents\\Bk-Up\\GitHub\\FolderMapping\\test\\rawOutput.txt");
         Scanner sc = new Scanner(file);
         String clean = "";
         
@@ -32,9 +32,9 @@ public class parser {
             if (ret != "Wrong") {
                 clean += ret + ";";
             }
-            
         }
-        FileWriter finalCSV = new FileWriter("C:\\Users\\prive\\Documents\\FolderMapping\\test\\finalOutput.csv");
+
+        FileWriter finalCSV = new FileWriter("C:\\Users\\prive\\Documents\\Bk-Up\\GitHub\\FolderMapping\\test\\finalOutput.txt");
         finalCSV.write(clean);
         finalCSV.close();
         sc.close();
@@ -44,8 +44,10 @@ public class parser {
         String toParse = String.valueOf(line);
         String r = "";
 
-        if (toParse.contains(".mkv") || toParse.contains(".mov") || toParse.contains(".mpg") || toParse.contains(".mp4") || toParse.contains(".iso") || toParse.contains(".avi") || toParse.contains(".png")) {
-            r = toParse.substring(50, toParse.length() - 4);
+        if (toParse.contains(".mkv") || toParse.contains(".mov") || toParse.contains(".mpg") || toParse.contains(".mp4") || toParse.contains(".iso") || toParse.contains(".avi")) {
+            String almost = toParse.substring(50, toParse.length());
+            String f = almost.replace(" ", "");
+            r = f.substring(0, f.length() - 4);
         } else {
             r = "Wrong";
         }
