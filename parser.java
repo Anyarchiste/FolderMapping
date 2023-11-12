@@ -32,7 +32,14 @@ public class parser {
     }
 
     public static String eraseUnwantedChar(Scanner line) {
+        String toParse = String.valueOf(line);
         String r = "";
+
+        if (toParse.contains(".mkv") || toParse.contains(".mov") || toParse.contains(".mpg") || toParse.contains(".mp4") || toParse.contains(".iso")) {
+            
+        } else {
+            r = "Wrong";
+        }
 
         return r;
     }
