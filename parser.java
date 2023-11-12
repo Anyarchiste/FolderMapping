@@ -21,26 +21,28 @@ public class parser {
     public static void main(String[] args) throws Exception
     {
         // pass the path to the file as a parameter
-        File file = new File(
-            "C:/Users/prive/Documents/FolderMapping/rawOutput.txt");
+        File file = new File("C:\\Users\\prive\\Documents\\FolderMapping\\test\\rawOutput.txt");
         Scanner sc = new Scanner(file);
+        String clean = "";
  
-        while (sc.hasNextLine())
-            System.out.println(sc.nextLine());
-        
+        while (sc.hasNextLine()){
+            clean = eraseUnwantedChar(sc.nextLine());
+            if (clean != "Wrong") {
+                System.out.println(clean);
+            }
+        }
         sc.close();
     }
 
-    public static String eraseUnwantedChar(Scanner line) {
+    public static String eraseUnwantedChar(String line) {
         String toParse = String.valueOf(line);
         String r = "";
 
-        if (toParse.contains(".mkv") || toParse.contains(".mov") || toParse.contains(".mpg") || toParse.contains(".mp4") || toParse.contains(".iso")) {
-            
+        if (toParse.contains(".mkv") || toParse.contains(".mov") || toParse.contains(".mpg") || toParse.contains(".mp4") || toParse.contains(".iso") || toParse.contains(".avi") || toParse.contains(".png")) {
+            r = toParse.substring(50, toParse.length() - 4);
         } else {
             r = "Wrong";
         }
-
         return r;
     }
 }
