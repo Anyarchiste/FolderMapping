@@ -26,9 +26,9 @@ public class parser {
         Scanner sc = new Scanner(file);
         String clean = "";
         
-        System.out.println(sc.nextLine());
         while (sc.hasNextLine()){
-            String ret = eraseUnwantedChar(sc.nextLine());
+            String urgh = sc.nextLine();
+            String ret = eraseUnwantedChar(urgh);
             if (ret != "Wrong") {
                 clean += ret + ";";
             }
