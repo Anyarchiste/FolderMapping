@@ -16,4 +16,4 @@
 
     $Path = Read-Host -Prompt 'Input the path to recusively parse through'
 
-    Get-ChildItem $Path -Recurse | Out-String | Set-Content .\rawOutput.txt
+    Get-ChildItem $Path -Recurse | Out-String | Set-Content .\test\rawOutput.txt
