@@ -17,3 +17,7 @@
     $Path = Read-Host -Prompt 'Input the path to recusively parse through'
 
     Get-ChildItem $Path -Recurse | Out-String | Set-Content .\test\rawOutput.txt
+
+    Start-Job -ScriptBlock {
+        & java "C:\Users\prive\Documents\FolderMapping\parser.java" >console.out 2>console.err
+      }

@@ -16,6 +16,7 @@
 
 
 import java.io.File;
+import java.io.FileWriter;
 import java.util.Scanner;
 public class parser {
     public static void main(String[] args) throws Exception
@@ -24,13 +25,18 @@ public class parser {
         File file = new File("C:\\Users\\prive\\Documents\\FolderMapping\\test\\rawOutput.txt");
         Scanner sc = new Scanner(file);
         String clean = "";
- 
+        
+        System.out.println(sc.nextLine());
         while (sc.hasNextLine()){
-            clean = eraseUnwantedChar(sc.nextLine());
-            if (clean != "Wrong") {
-                System.out.println(clean);
+            String ret = eraseUnwantedChar(sc.nextLine());
+            if (ret != "Wrong") {
+                clean += ret + ";";
             }
+            
         }
+        FileWriter finalCSV = new FileWriter("C:\\Users\\prive\\Documents\\FolderMapping\\test\\finalOutput.csv");
+        finalCSV.write(clean);
+        finalCSV.close();
         sc.close();
     }
 
