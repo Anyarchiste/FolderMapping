@@ -21,8 +21,7 @@ import java.util.Scanner;
 public class parser {
     public static void main(String[] args) throws Exception
     {
-        // pass the path to the file as a parameter
-        File file = new File("C:\\Users\\prive\\Documents\\Bk-Up\\GitHub\\FolderMapping\\test\\rawOutput.txt");
+        File file = new File("C:\\Users\\prive\\Documents\\FolderMapping\\test\\rawOutput.txt");
         Scanner sc = new Scanner(file);
         String clean = "";
         
@@ -30,11 +29,11 @@ public class parser {
             String urgh = sc.nextLine();
             String ret = eraseUnwantedChar(urgh);
             if (ret != "Wrong") {
-                clean += ret + ";";
+                clean += ret + "\n";
             }
         }
 
-        FileWriter finalCSV = new FileWriter("C:\\Users\\prive\\Documents\\Bk-Up\\GitHub\\FolderMapping\\test\\finalOutput.txt");
+        FileWriter finalCSV = new FileWriter("C:\\Users\\prive\\Documents\\FolderMapping\\test\\finalOutput.txt");
         finalCSV.write(clean);
         finalCSV.close();
         sc.close();
